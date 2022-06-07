@@ -38,6 +38,26 @@ namespace WinFormComponents
             customerSearch.ShowDialog();
         }
 
+        private void btnEditForm_Click(object sender, EventArgs e)
+        {
+            var definitions = new List<EditPropertyDefinition>();
+            definitions.Add(new EditPropertyDefinition { Name = nameof(DummyCustomer.Name), Lable = "Name" });
+            definitions.Add(new EditPropertyDefinition { Name = nameof(DummyCustomer.Code), Lable = "Code" });
+            
+            var newCustomer = new DummyCustomer();
+            
+            var customerEntry = new Form_EntityEdit<DummyCustomer>(definitions, newCustomer);
+            customerEntry.Text = "ENTER NEW CUSTOMER";
+            customerEntry.BackVisible = false;
+            customerEntry.FormBorderStyle = FormBorderStyle.FixedDialog;
+            customerEntry.MaximizeBox = false;
+            customerEntry.MinimizeBox = false;
+            customerEntry.TopMost = true;
+            customerEntry.ShowDialog();
+
+            MessageBox.Show($"CREATED: ({newCustomer?.Code}) {newCustomer?.Name}");
+        }
+
 
         #region DUMMY DATA
         public class DummyCustomer
@@ -46,5 +66,6 @@ namespace WinFormComponents
             public string Code { get; set; }
         }
         #endregion
+
     }
 }
