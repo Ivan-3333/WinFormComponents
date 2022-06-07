@@ -55,7 +55,8 @@ namespace WinFormComponents
             customerEntry.TopMost = true;
             customerEntry.ShowDialog();
 
-            MessageBox.Show($"CREATED: ({newCustomer?.Code}) {newCustomer?.Name}");
+            if(!string.IsNullOrEmpty(newCustomer.Code))
+                MessageBox.Show($"Created: ({newCustomer?.Code}) {newCustomer?.Name}");
         }
 
 

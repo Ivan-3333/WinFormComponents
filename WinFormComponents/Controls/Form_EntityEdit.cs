@@ -38,12 +38,12 @@ namespace WinFormComponents.Controls
 
         private void Form_EntityEdit_Load(object sender, EventArgs e)
         {
-            var labelsWidth=LoadLabels();
-            var fieldsHeight=LoadTextBoxs(labelsWidth);
+            var labelsWidth = LoadLabels();
+            var fieldsHeight = LoadTextBoxs(labelsWidth);
             LoadButtons(fieldsHeight);
             ResizeForm(formWidth, formHeight);
 
-            
+
         }
 
         private int LoadLabels()
@@ -51,7 +51,7 @@ namespace WinFormComponents.Controls
             int x = 10;
             int y = 15;
             int width = 0;
-            foreach(var item in PropertyDefinitions )
+            foreach (var item in PropertyDefinitions)
             {
                 CreateLabelForProperty(x, ref y, ref width, item);
             }
@@ -145,13 +145,13 @@ namespace WinFormComponents.Controls
             return btnBack;
         }
 
-        private void ResizeForm(int width,int height)
+        private void ResizeForm(int width, int height)
         {
-            if(width>300)
+            if (width > 300)
                 this.Width = width;
             else
                 this.Width = 300;
-            this.Height = height+40;
+            this.Height = height + 40;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -161,7 +161,7 @@ namespace WinFormComponents.Controls
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if(FillEntity())
+            if (FillEntity())
             {
                 onEditFinished?.Invoke(Entity);
                 this.DialogResult = DialogResult.OK;
@@ -200,7 +200,7 @@ namespace WinFormComponents.Controls
     public class EditPropertyDefinition
     {
         public string Name { get; set; }
-        public string Lable{ get; set; }
+        public string Lable { get; set; }
         public int? FiledSize { get; set; }
     }
 

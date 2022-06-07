@@ -51,7 +51,7 @@ namespace WinFormComponents.Controls
             SetSelectOnEnter();
 
             ResizeGrid();
-            ResizeForm();                    
+            ResizeForm();
         }
 
         private void TranslateLabels()
@@ -125,7 +125,7 @@ namespace WinFormComponents.Controls
         private void ResizeGrid()
         {
             int width = 0;
-            foreach (DataGridViewColumn item in dgwList.Columns.Cast<DataGridViewColumn>().Where(x=>x.Visible==true))
+            foreach (DataGridViewColumn item in dgwList.Columns.Cast<DataGridViewColumn>().Where(x => x.Visible == true))
             {
                 item.MinimumWidth = item.Name == "colSelect" ? 20 : 100;
                 if (item.Name == "colSelect")
@@ -150,7 +150,7 @@ namespace WinFormComponents.Controls
                 this.dgwList.KeyDown += SelectOnEnter;
                 this.txtSearch.KeyDown += (s, e) =>
                 {
-                    if(e.KeyCode == Keys.Down)
+                    if (e.KeyCode == Keys.Down)
                     {
                         dgwList.Select();
                         dgwList.Focus();
@@ -163,7 +163,7 @@ namespace WinFormComponents.Controls
 
         private void SelectOnEnter(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter && dgwList.SelectedRows.Count > 0 )
+            if (e.KeyCode == Keys.Enter && dgwList.SelectedRows.Count > 0)
             {
                 SelectItem();
             }
@@ -171,7 +171,7 @@ namespace WinFormComponents.Controls
 
         private void dgwList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(!multiSelect)
+            if (!multiSelect)
             {
                 SelectItem();
             }
